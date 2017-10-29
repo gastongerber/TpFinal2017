@@ -1,4 +1,6 @@
 <?php
+
+namespace TpFinal;
 	
 class Tarjeta {	
 	
