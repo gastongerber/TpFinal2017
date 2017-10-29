@@ -64,17 +64,15 @@ public function pagar( Transporte $transporte) {
         }
 	}
 public function recargar($monto){
-	   if($monto == 332) {
-            $this->saldoactual += 388;
-        }else{
-            if($monto == 500) {
-                $this->saldoactual += 652;          
-            }
-        }else{
-            $this->saldoactual += $monto;
-        }
-}
-
+	if($monto == 332) {
+        	$this->saldoactual += 388;
+        } else {
+        	if($monto == 500) {
+                	$this->saldoactual += 652;          
+		} else {
+            		$this->saldoactual += $monto;
+		}
+	}
 }
 
 abstract class Transporte {
