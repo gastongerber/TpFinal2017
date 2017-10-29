@@ -16,8 +16,7 @@ public function mostrarviajeshechos() {
 	}
 public function pagar( Transporte $transporte) {
 		$fh=new DateTime();
-		$fhv = $fh->format('Y-m-d-H-i-s');
-		$Viaje = new Viaje ($transporte, $fhv);
+		$Viaje = new Viaje ($transporte, $fh);
 		$this->viajeshechos[] = $Viaje;
 	}
 public function recargar($monto){
