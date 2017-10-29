@@ -52,3 +52,20 @@ class Colectivo extends Transporte {
 		$this->linea = $linea;
 	}
 }
+
+class Viaje {
+    
+    protected $transporte, $fecha;
+
+    public function __construct ($trans,$f) {
+        $this->transporte=$trans;
+        $this->fecha=$f;
+    }
+    
+    public function darTransporte() {
+          return $this->transporte;
+    }
+    public function darFecha() {
+          return $this->fecha;
+    }
+}
