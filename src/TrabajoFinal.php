@@ -15,9 +15,27 @@ public function mostrarviajeshechos() {
 		return $this->viajeshechos;
 	}
 public function pagar( Transporte $transporte) {
-		$fh=new DateTime();
-		$Viaje = new Viaje ($transporte, $fh);
-		$this->viajeshechos[] = $Viaje;
+	if ($transporte instanceof Bicicleta){
+        	$viajes = $this->mostrarviajeshechos();
+        	$fecha = new DateTime();
+        	$fechaf = $fecha->getTimestamp();
+       		foreach( $viajes as $viaje ) { 
+	if ( $viaje->darTransporte() instanceof Bicicleta && ($viaje->darFecha()->getTimestamp()+ 86400 ) <= $fechaf) {
+				$condicion = 1;
+				break;
+				}
+			}
+			if ( $condicion == 0 ) {
+				$fh=new DateTime();
+				$Viaje = new Viaje ($transporte, $fh);
+				$this->viajeshechos[] = $Viaje;
+				$this->saldoactual = $this->saldoactual - $transporte->boleto;
+			} else {
+				$fh=new DateTime();
+				$Viaje = new Viaje ($transporte, $fh);
+				$this->viajeshechos[] = $Viaje;
+			}
+		}
 	}
 public function recargar($monto){
 	   if($monto == 332) {
