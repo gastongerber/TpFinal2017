@@ -38,6 +38,29 @@ public function pagar( Transporte $transporte) {
 				$this->viajeshechos[] = $Viaje;
 			}
 		}
+	else {
+			$viajes = $this->mostrarviajeshechos();
+			$ultimo_viaje = end( $viajes );
+			$fecha = new DateTime();
+        	$fechaf = $fecha->getTimestamp();
+			if ( false == $ultimo_viaje ) {
+				$fh=new DateTime();
+				$Viaje = new Viaje ($transporte, $fh);
+				$this->viajeshechos[] = $Viaje;
+				$this->saldoactual = $this->saldoactual - $transporte->boleto;
+			} elseif ( $ultimo_viaje->darTransporte() instanceof Colectivo && $ultimo_viaje->darTransporte()->linea != $transporte->linea && ($ultimo_viaje->darFecha()->getTimestamp()+ 3600 ) <= $fechaf ) {
+				$fh=new DateTime();
+				$Viaje = new Viaje ($transporte, $fh);
+				$this->viajeshechos[] = $Viaje;
+				$this->saldoactual = $this->saldoactual - ($transporte->boleto/3);
+				} else {
+					$fh=new DateTime();
+					$Viaje = new Viaje ($transporte, $fh);
+					$this->viajeshechos[] = $Viaje;
+					$this->saldoactual = $this->saldoactual - ($transporte->boleto/3);
+				}
+            
+        }
 	}
 public function recargar($monto){
 	   if($monto == 332) {
