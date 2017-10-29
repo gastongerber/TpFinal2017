@@ -37,8 +37,7 @@ public function pagar( Transporte $transporte) {
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
 			}
-		}
-	else {
+		} else {
 			$viajes = $this->mostrarviajeshechos();
 			$ultimo_viaje = end( $viajes );
 			$fecha = new DateTime();
