@@ -41,7 +41,7 @@ public function pagar( Transporte $transporte) {
 			$viajes = $this->mostrarviajeshechos();
 			$ultimo_viaje = end( $viajes );
 			$fecha = new DateTime();
-        	$fechaf = $fecha->getTimestamp();
+        		$fechaf = $fecha->getTimestamp();
 			if ( false == $ultimo_viaje ) {
 				$fh=new DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
