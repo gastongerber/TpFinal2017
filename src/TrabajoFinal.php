@@ -19,6 +19,7 @@ public function pagar( Transporte $transporte) {
         	$viajes = $this->mostrarviajeshechos();
         	$fecha = new DateTime();
         	$fechaf = $fecha->getTimestamp();
+		$condicion = 0;
        		foreach( $viajes as $viaje ) { 
 	if ( $viaje->darTransporte() instanceof Bicicleta && ($viaje->darFecha()->getTimestamp()+ 86400 ) <= $fechaf) {
 				$condicion = 1;
