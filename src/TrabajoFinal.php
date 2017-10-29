@@ -51,12 +51,12 @@ public function pagar( Transporte $transporte) {
 				$fh=new DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
-				$this->saldoactual = $this->saldoactual - $transporte->boleto;
+				$this->saldoactual = $this->saldoactual - ($transporte->boleto/3);
 				} else {
 					$fh=new DateTime();
 					$Viaje = new Viaje ($transporte, $fh);
 					$this->viajeshechos[] = $Viaje;
-					$this->saldoactual = $this->saldoactual - ($transporte->boleto/3);
+					$this->saldoactual = $this->saldoactual - $transporte->boleto;
 				}
             
         }
