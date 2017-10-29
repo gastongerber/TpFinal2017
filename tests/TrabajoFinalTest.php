@@ -1,5 +1,7 @@
 <?php
 
+namespace TpFinal;
+
 use PHPUnit\Framework\TestCase;
 
 class TrabajoFinalTest extends TestCase {
