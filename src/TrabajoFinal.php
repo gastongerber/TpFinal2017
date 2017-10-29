@@ -5,6 +5,7 @@ class Tarjeta {
 protected $saldoactual, $viajeshechos, $dni;
 
 public function __construct( $dni ) {
+		$this->saldoactual = 0;
 		$this->dni = $dni;
 	}
 
