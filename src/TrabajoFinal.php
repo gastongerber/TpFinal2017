@@ -54,11 +54,12 @@ class Colectivo extends Transporte {
 
 class Viaje {
     
-    protected $transporte, $fecha;
+    protected $transporte, $fecha, $fechaf;
 
     public function __construct ($trans,$f) {
         $this->transporte=$trans;
         $this->fecha=$f;
+	$this->fechaf=$f->format('Y-m-d-H-i-s');
     }
     
     public function darTransporte() {
