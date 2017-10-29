@@ -2,7 +2,11 @@
 	
 class Tarjeta {	
 	
-protected $saldoactual, $viajeshechos;
+protected $saldoactual, $viajeshechos, $dni;
+
+public function __construct( $dni ) {
+		$this->dni = $dni;
+	}
 
 public function saldo() {
 		return $this->saldoactual;
