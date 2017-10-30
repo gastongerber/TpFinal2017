@@ -4,7 +4,8 @@ namespace TpFinal;
 	
 class Tarjeta {	
 	
-protected $saldoactual, $viajeshechos, $dni;
+protected $saldoactual, $dni;
+protected $viajeshechos = [];
 
 public function __construct( $dni ) {
 		$this->saldoactual = 0;
