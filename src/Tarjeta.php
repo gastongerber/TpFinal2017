@@ -74,40 +74,8 @@ public function recargar($monto){
 		}
 	}
 }
-
-abstract class Transporte {
-	public $boleto;
-}
-class Bicicleta extends Transporte {
-	public $boleto = 14.55;
-	public $patente;
-	public function __construct( $patente ) {
-		$this->patente = $patente;
-	}
 }
 
-class Colectivo extends Transporte {
-	public $boleto = 9.7;
-	public $linea;
-	public function __construct( $linea ) {
-		$this->linea = $linea;
-	}
-}
 
-class Viaje {
-    
-    protected $transporte, $fecha, $fechaf;
 
-    public function __construct ($trans,$f) {
-        $this->transporte=$trans;
-        $this->fecha=$f;
-	$this->fechaf=$f->format('Y-m-d-H-i-s');
-    }
-    
-    public function darTransporte() {
-          return $this->transporte;
-    }
-    public function darFecha() {
-          return $this->fecha;
-    }
-}
+
