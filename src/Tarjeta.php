@@ -31,32 +31,32 @@ public function pagar( Transporte $transporte) {
 				}
 			}
 			if ( $condicion == 0 ) {
-				$fh=new DateTime();
+				$fh=new \DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
 				$this->saldoactual = $this->saldoactual - $transporte->boleto;
 			} else {
-				$fh=new DateTime();
+				$fh=new \DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
 			}
 		} else {
 			$viajes = $this->mostrarviajeshechos();
 			$ultimo_viaje = end( $viajes );
-			$fecha = new DateTime();
+			$fecha = new \DateTime();
         		$fechaf = $fecha->getTimestamp();
 			if ( false == $ultimo_viaje ) {
-				$fh=new DateTime();
+				$fh=new \DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
 				$this->saldoactual = $this->saldoactual - $transporte->boleto;
 			} elseif ( $ultimo_viaje->darTransporte() instanceof Colectivo && $ultimo_viaje->darTransporte()->linea != $transporte->linea && ($ultimo_viaje->darFecha()->getTimestamp()+ 3600 ) <= $fechaf ) {
-				$fh=new DateTime();
+				$fh=new \DateTime();
 				$Viaje = new Viaje ($transporte, $fh);
 				$this->viajeshechos[] = $Viaje;
 				$this->saldoactual = $this->saldoactual - ($transporte->boleto/3);
 				} else {
-					$fh=new DateTime();
+					$fh=new \DateTime();
 					$Viaje = new Viaje ($transporte, $fh);
 					$this->viajeshechos[] = $Viaje;
 					$this->saldoactual = $this->saldoactual - $transporte->boleto;
