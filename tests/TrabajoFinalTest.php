@@ -25,5 +25,10 @@ class TarjetaTest extends TestCase {
           $saldo_actual = $tarjeta->saldo();
           $tarjeta->pagar($colectivo_144);
           $this->assertEquals($tarjeta->saldo(), ($saldo_actual - $colectivo_144->boleto ) );
+          
+          $saldo_actual = $tarjeta->saldo();
+          $colectivo_113 = new Colectivo("113");
+          $tarjeta->pagar($colectivo_113);
+          $this->assertEquals($tarjeta->saldo(), ($saldo_actual - ($colectivo_113->boleto /3) ) );
     }
 }
