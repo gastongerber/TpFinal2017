@@ -23,7 +23,7 @@ public function mostrarviajeshechos() {
 public function pagar(Transporte $transporte) {
     if ($transporte instanceof Bicicleta) {
             $viajes = $this->mostrarviajeshechos();
-            $fecha = new DateTime();
+            $fecha = new \DateTime();
             $fechaf = $fecha->getTimestamp();
             $condicion = 0;
             foreach ($viajes as $viaje) {
