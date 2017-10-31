@@ -15,9 +15,11 @@ public function __construct( $dni ) {
 public function saldo() {
 		return $this->saldoactual;
 	}
+	
 public function mostrarviajeshechos() {
 		return $this->viajeshechos;
 	}
+	
 public function pagar( Transporte $transporte) {
 	if ($transporte instanceof Bicicleta){
         	$viajes = $this->mostrarviajeshechos();
@@ -64,6 +66,7 @@ public function pagar( Transporte $transporte) {
             
         }
 	}
+	
 public function recargar($monto){
 	if($monto == 332) {
         	$this->saldoactual += 388;
