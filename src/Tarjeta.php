@@ -27,7 +27,7 @@ public function pagar(Transporte $transporte) {
             $fechaf = $fecha->getTimestamp();
             $condicion = 0;
             foreach ($viajes as $viaje) {
-            if ($viaje->darTransporte() instanceof Bicicleta && ($viaje->darFecha()->getTimestamp()+ 86400) <= $fechaf) {
+            if ($viaje->darTransporte() instanceof Bicicleta && ($viaje->darFecha()->getTimestamp()+ 86400) >= $fechaf) {
                 $condicion = 1;
                 break;
             }
@@ -52,7 +52,7 @@ public function pagar(Transporte $transporte) {
             $Viaje = new Viaje($transporte, $fh);
             $this->viajeshechos[] = $Viaje;
             $this->saldoactual = $this->saldoactual - $transporte->boleto;
-        } elseif ($ultimo_viaje->darTransporte() instanceof Colectivo && $ultimo_viaje->darTransporte()->linea != $transporte->linea && ($ultimo_viaje->darFecha()->getTimestamp()+ 3600) <= $fechaf) {
+        } elseif ($ultimo_viaje->darTransporte() instanceof Colectivo && $ultimo_viaje->darTransporte()->linea != $transporte->linea && ($ultimo_viaje->darFecha()->getTimestamp()+ 3600) >= $fechaf) {
                 $fh=new \DateTime();
                 $Viaje = new Viaje($transporte, $fh);
                 $this->viajeshechos[] = $Viaje;
