@@ -1,7 +1,7 @@
 <?php
-
 namespace TpFinal;
 
-abstract class Transporte {
-	public $boleto;
+abstract class Transporte
+{
+    public $boleto;
 }
