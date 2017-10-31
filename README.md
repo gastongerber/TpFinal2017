@@ -1,4 +1,9 @@
-TP Final
+Trabajo Final
+Integrantes:
+Joaquín Ortega
+Gastón Gerber
+Curso: 6to Informática
+Profesor:  Mariano D'Agostino
 
 [![Coverage Status](https://coveralls.io/repos/github/gastongerber/TpFinal2017/badge.svg?branch=master)](https://coveralls.io/github/gastongerber/TpFinal2017?branch=master)
 
