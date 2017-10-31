@@ -1,20 +1,21 @@
 <?php
 namespace TpFinal;
 
-class Viaje {
-    
-    protected $transporte, $fecha, $fechaf;
-
-    public function __construct ($trans,$f) {
+class Viaje
+{
+    protected $transporte;
+    protected $fecha;
+    protected $fechaf;
+    public function __construct($trans, $f) {
         $this->transporte=$trans;
         $this->fecha=$f;
-	$this->fechaf=$f->format('Y-m-d-H-i-s');
+        $this->fechaf=$f->format('Y-m-d-H-i-s');
     }
     
     public function darTransporte() {
-          return $this->transporte;
+        return $this->transporte;
     }
     public function darFecha() {
-          return $this->fecha;
+        return $this->fecha;
     }
 }
